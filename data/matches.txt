@@ -1,7 +1,0 @@
-Yaren,Atnallar|Eren,Tanyaş
-Eren,Tanyaş|Taha,Akgül
-Taha,Akgül|admin,admin
-admin,admin|john,walt
-john,walt|x,y
-x,y|abc,abc
-abc,abc|Yaren,Atnallar
