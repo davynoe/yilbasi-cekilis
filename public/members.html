@@ -21,11 +21,19 @@
       <section class="actions-card">
         <div>
           <p class="eyebrow small">Yönetici İşlemleri</p>
-          <p class="muted">Eşleşmeleri yeniden oluşturmak için butona tıkla.</p>
+          <p class="muted">Eşleşmeleri yönet veya kullanıcıları düzenle.</p>
         </div>
-        <button id="matchButton" class="btn secondary large hidden">
-          Eşleştir
-        </button>
+        <div class="action-buttons">
+          <button id="matchButton" class="btn secondary large hidden">
+            Eşleştir
+          </button>
+          <button id="selectAllButton" class="btn secondary large hidden">
+            Hepsini Seç
+          </button>
+          <button id="deleteButton" class="btn danger large hidden">
+            Seçilenleri Sil
+          </button>
+        </div>
       </section>
 
       <section class="assignment-card">
@@ -44,7 +52,7 @@
           <p id="memberCount" class="muted"></p>
         </div>
 
-        <div class="block">
+        <div style="display: flex; flex-direction: column">
           <h3 class="section-title">Katılımcılar</h3>
           <ul id="membersList" class="members-list"></ul>
         </div>
@@ -59,5 +67,6 @@
     </main>
 
     <script src="members.js"></script>
+    <script src="snow.js"></script>
   </body>
 </html>
