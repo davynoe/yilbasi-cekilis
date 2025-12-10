@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yılbaşı Çekilişi - Üyeler</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">Hoş geldin, yardımcı elf 🎅</p>
+        <h1>🎄 Yılbaşı Çekilişi 🎁</h1>
+        <p class="lede">Kutlamaya katılan herkes burada. Işıltı zamanı!</p>
+        <a href="/" class="btn">Ana sayfaya dön</a>
+      </div>
+    </header>
+
+    <main class="panel">
+      <section class="actions-card">
+        <div>
+          <p class="eyebrow small">Yönetici İşlemleri</p>
+          <p class="muted">Eşleşmeleri yeniden oluşturmak için butona tıkla.</p>
+        </div>
+        <button id="matchButton" class="btn secondary large hidden">
+          Eşleştir
+        </button>
+      </section>
+
+      <section class="assignment-card">
+        <div class="assignment-emoji">🎁</div>
+        <div>
+          <p class="eyebrow small">Hediye Eşin</p>
+          <p id="assignmentText" class="assignment-text">
+            Hediyeleşme eşin aranıyor...
+          </p>
+        </div>
+      </section>
+
+      <section class="members-card">
+        <div class="members-head">
+          <h2>Katılanlar</h2>
+          <p id="memberCount" class="muted"></p>
+        </div>
+
+        <div class="block">
+          <h3 class="section-title">Katılımcılar</h3>
+          <ul id="membersList" class="members-list"></ul>
+        </div>
+
+        <p
+          id="membersStatus"
+          class="status"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
+    </main>
+
+    <script src="members.js"></script>
+  </body>
+</html>

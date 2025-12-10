@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yılbaşı Çekilişi</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="snow" aria-hidden="true"></div>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">Yeni yıla birlikte girelim ✨</p>
+        <h1>🎄 Yılbaşı Çekilişi 🎁</h1>
+        <p class="lede">
+          Ağacın etrafında toplan, kutlamaya katıl ve sürpriz hediyeler için
+          şansını dene.
+        </p>
+        <button id="joinButton" class="btn">Katıl</button>
+      </div>
+    </header>
+
+    <section id="revealSection" class="reveal hidden" aria-live="polite">
+      <div class="reveal__card">
+        <form id="authForm" class="form active" novalidate>
+          <div class="form-row">
+            <label class="fade-seq fade-1">
+              Kullanıcı adı
+              <input type="text" name="username" required />
+            </label>
+            <label class="fade-seq fade-2">
+              Soyadı
+              <input type="text" name="surname" required />
+            </label>
+            <label class="fade-seq fade-3">
+              Şifre
+              <input type="password" name="password" required />
+            </label>
+          </div>
+          <div class="dual-actions fade-seq fade-4">
+            <button type="button" id="signupAction" class="btn full">
+              Kayıt ol
+            </button>
+            <button type="button" id="loginAction" class="btn secondary full">
+              Giriş yap
+            </button>
+          </div>
+        </form>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
