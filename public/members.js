@@ -1,3 +1,28 @@
+// --- KAR EFEKTİ BAŞLANGIÇ ---
+function generateSnowGradient() {
+  const density = 35;
+  const size = 400;
+  const gradients = [];
+  for (let i = 0; i < density; i += 1) {
+    const v = Math.floor(Math.random() * 4) + 2; // 2-5px
+    const a = Math.random() * 0.5 + 0.5; // 0.5 - 1.0 opacity
+    const x = Math.floor(Math.random() * (size - v * 2) + v);
+    const y = Math.floor(Math.random() * (size - v * 2) + v);
+    gradients.push(
+      `radial-gradient(${v}px ${v}px at ${x}px ${y}px, rgba(255,255,255,${a}) 50%, rgba(0,0,0,0))`
+    );
+  }
+  return gradients.join(",");
+}
+
+// Kar efektini sayfaya uygula
+document.documentElement.style.setProperty(
+  "--snow-grad",
+  generateSnowGradient()
+);
+// --- KAR EFEKTİ BİTİŞ ---
+
+// Mevcut kodların buradan devam etsin...
 const membersList = document.getElementById("membersList");
 const memberCount = document.getElementById("memberCount");
 const membersStatus = document.getElementById("membersStatus");
@@ -54,6 +79,16 @@ function getUserIdentity() {
   };
 }
 
+function updateEyebrowUsername() {
+  const { username } = getUserIdentity();
+  if (username) {
+    const eyebrowElement = document.querySelector(".hero__content .eyebrow");
+    if (eyebrowElement) {
+      eyebrowElement.textContent = `Hoş Geldin, ${username} 🎅`;
+    }
+  }
+}
+
 function renderMembersList() {
   membersList.innerHTML = "";
   const isAdmin = isSuperuser();
@@ -62,7 +97,9 @@ function renderMembersList() {
     const fullName = `${username} ${surname}`;
     if (isAdmin) {
       const match = pairsMap.find((p) => p.giver === fullName);
-      li.textContent = match ? `${fullName} ➜ ${match.receiver}` : `${fullName} ➜ ?`;
+      li.textContent = match
+        ? `${fullName} ➜ ${match.receiver}`
+        : `${fullName} ➜ ?`;
     } else {
       li.textContent = fullName;
     }
@@ -146,9 +183,9 @@ async function loadMyAssignment() {
   assignmentText.textContent = "Hediyeleşme eşin aranıyor...";
   try {
     const res = await fetch(
-      `/api/my-match?username=${encodeURIComponent(username)}&surname=${encodeURIComponent(
-        surname
-      )}`
+      `/api/my-match?username=${encodeURIComponent(
+        username
+      )}&surname=${encodeURIComponent(surname)}`
     );
     const data = await res.json();
     if (!res.ok) {
@@ -167,3 +204,4 @@ if (!isSuperuser()) {
   assignmentText.textContent = "Eşleşmeleri görmek için Eşleştir'e bas.";
 }
 
+updateEyebrowUsername();

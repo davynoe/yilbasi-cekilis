@@ -412,7 +412,8 @@ input:focus {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -421,6 +422,8 @@ input:focus {
   border-radius: 10px;
   background: #f9fbff;
   border: 1px solid rgba(27, 138, 79, 0.12);
+  margin-right: 10px; /* Add some spacing between items */
+  margin-bottom: 10px; /* Add some spacing between rows */
 }
 
 .muted {
